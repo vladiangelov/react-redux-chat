@@ -1,0 +1,25 @@
+.App {
+  text-align: center;
+  display: flex;
+  height: 100vh;
+}
+
+.logo {
+  width: 6%;
+  background-color: rgba(1, 1, 1, 0.1);
+}
+
+.channel-list {
+  width: 30%;
+  background-color: rgba(1, 1, 1, 0.03);
+  text-align: left;
+  padding-left: 30px;
+}
+
+.message-list {
+  width: 64%;
+}
+
+.active-channel {
+  font-weight: bolder;
+}
