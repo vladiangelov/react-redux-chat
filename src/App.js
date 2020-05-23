@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.scss';
 import ChannelList from './containers/ChannelList';
+import MessageList from './containers/MessageList';
 
 function App() {
   const style = { width: "50px", marginTop: "10px" };
@@ -14,7 +15,9 @@ function App() {
       <div className="channel-list">
         <ChannelList />
       </div>
-      <div className="message-list">MessageList</div>
+      <div className="message-list">
+        <MessageList />
+      </div>
     </div>
   );
 }
