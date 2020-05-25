@@ -5,7 +5,9 @@ import { connect } from 'react-redux';
 const MessageList = (props) => {
   return(
     <div>
-    <div><h3>Channel #{props.selectedChannel}</h3></div>
+      <div className="channel-title">
+        <h3>Channel #{props.selectedChannel}</h3>
+      </div>
       {props.messages.map((message) => {
         return <Message message={message} />
       })}
