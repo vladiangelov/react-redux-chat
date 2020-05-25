@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
+import { logger } from 'redux-logger';
 
 import rootReducer from './reducers/rootReducer';
 import * as serviceWorker from './serviceWorker';
@@ -22,11 +23,13 @@ const initialState = {
     }
   ],
   channels: [ 'general', 'react', 'paris', 'sofia' ],
-  currentUser: prompt("What is your username?") || `anonymous${Math.floor(10 + (Math.random() * 90))}`,
+  currentUser: `anonymous${Math.floor(10 + (Math.random() * 90))}`,
   selectedChannel: 'react'
 };
 
-const store = createStore(rootReducer, initialState);
+const middlewares = applyMiddleware(logger);
+
+const store = createStore(rootReducer, initialState, middlewares);
 
 ReactDOM.render(
   <React.StrictMode>

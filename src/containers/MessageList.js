@@ -9,7 +9,7 @@ const MessageList = (props) => {
         <h3>Channel #{props.selectedChannel}</h3>
       </div>
       {props.messages.map((message) => {
-        return <Message message={message} />
+        return <Message message={message} key={message.created_at} />
       })}
     </div>
   )

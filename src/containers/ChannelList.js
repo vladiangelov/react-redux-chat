@@ -10,7 +10,7 @@ const ChannelList = (props) => {
         if (channel === props.selectedChannel) {
           style += "active-channel";
         }
-        return <p className={style}>#{channel}</p>
+        return <p className={style} key={channel}>#{channel}</p>
       })}
     </div>
   )
