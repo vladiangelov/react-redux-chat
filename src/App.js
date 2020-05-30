@@ -2,6 +2,8 @@ import React from 'react';
 import './App.scss';
 import ChannelList from './containers/ChannelList';
 import MessageList from './containers/MessageList';
+import MessageForm from './containers/MessageForm';
+
 
 function App() {
   const style = { width: "50px", marginTop: "10px" };
@@ -17,6 +19,7 @@ function App() {
       </div>
       <div className="message-list">
         <MessageList />
+        <MessageForm />
       </div>
     </div>
   );

@@ -5,6 +5,7 @@ import App from './App';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import { logger } from 'redux-logger';
+import reduxPromise from 'redux-promise';
 
 import rootReducer from './reducers/rootReducer';
 import * as serviceWorker from './serviceWorker';
@@ -24,10 +25,10 @@ const initialState = {
   ],
   channels: [ 'general', 'react', 'paris', 'sofia' ],
   currentUser: `anonymous${Math.floor(10 + (Math.random() * 90))}`,
-  selectedChannel: 'react'
+  selectedChannel: 'general'
 };
 
-const middlewares = applyMiddleware(logger);
+const middlewares = applyMiddleware(logger, reduxPromise);
 
 const store = createStore(rootReducer, initialState, middlewares);
 

@@ -1,18 +1,33 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Message from '../components/Message';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { setMessages } from '../actions/index';
 
-const MessageList = (props) => {
-  return(
-    <div>
-      <div className="channel-title">
-        <h3>Channel #{props.selectedChannel}</h3>
-      </div>
-      {props.messages.map((message) => {
-        return <Message message={message} key={message.created_at} />
-      })}
-    </div>
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators(
+    { setMessages: setMessages },
+    dispatch
   )
+}
+
+class MessageList extends Component {
+  componentDidMount() {
+    this.props.setMessages();
+  }
+
+  render() {
+    return(
+      <div>
+        <div className="channel-title">
+          <h3>Channel #{this.props.selectedChannel}</h3>
+        </div>
+        {this.props.messages.map((message) => {
+          return <Message message={message} key={message.created_at} />
+        })}
+      </div>
+    )
+  }
 }
 
 const mapStateToProps = (state) => {
@@ -22,4 +37,4 @@ const mapStateToProps = (state) => {
   };
 }
 
-export default connect(mapStateToProps)(MessageList);
+export default connect(mapStateToProps, mapDispatchToProps)(MessageList);
