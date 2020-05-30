@@ -14,6 +14,11 @@ const mapDispatchToProps = (dispatch) => {
 class MessageList extends Component {
   componentDidMount() {
     this.props.setMessages();
+    setInterval(() => {this.props.setMessages()}, 5000);
+  }
+
+  componentWillUnmount() {
+    // Good practice to include clearInterval here
   }
 
   render() {

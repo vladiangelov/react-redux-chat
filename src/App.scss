@@ -17,7 +17,11 @@
 
 .message-list {
   width: 74%;
+}
 
+.message-top {
+  overflow-x: scroll;
+  height: 90vh;
 }
 
 .active-channel {

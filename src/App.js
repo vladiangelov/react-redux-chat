@@ -18,7 +18,9 @@ function App() {
         <ChannelList />
       </div>
       <div className="message-list">
-        <MessageList />
+        <div className="message-top">
+          <MessageList />
+        </div>
         <MessageForm />
       </div>
     </div>
