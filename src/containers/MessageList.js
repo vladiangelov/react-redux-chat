@@ -13,8 +13,8 @@ const mapDispatchToProps = (dispatch) => {
 
 class MessageList extends Component {
   componentDidMount() {
-    this.props.setMessages();
-    setInterval(() => {this.props.setMessages()}, 5000);
+    this.props.setMessages(this.props.selectedChannel);
+    setInterval(() => {this.props.setMessages(this.props.selectedChannel)}, 5000);
   }
 
   componentWillUnmount() {

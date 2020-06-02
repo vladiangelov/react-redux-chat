@@ -25,7 +25,7 @@ const initialState = {
   ],
   channels: [ 'general', 'react', 'paris', 'sofia' ],
   currentUser: `anonymous${Math.floor(10 + (Math.random() * 90))}`,
-  selectedChannel: 'general'
+  selectedChannel: 'react'
 };
 
 const middlewares = applyMiddleware(logger, reduxPromise);

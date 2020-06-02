@@ -25,7 +25,7 @@ class MessageForm extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    this.props.createMessage("general", "Vladi", this.state.value);
+    this.props.createMessage(this.props.selectedChannel, "Vladi", this.state.value);
   }
 
   render() {
@@ -40,4 +40,10 @@ class MessageForm extends Component {
   }
 }
 
-export default connect(null, mapDispatchToProps)(MessageForm);
+const mapStateToProps = (state) => {
+  return {
+    selectedChannel: state.selectedChannel
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(MessageForm);
